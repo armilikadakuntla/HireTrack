@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HireTrack | Job Application Tracker</title><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar"><a class="brand" href="#"><span class="brand-mark">H</span> HireTrack</a><div id="user-area" class="user-area"></div></header>
+    <main>
+      <section id="auth-view" class="auth-layout">
+        <div class="hero"><span class="eyebrow">YOUR CAREER, ORGANIZED</span><h1>Make every application <em>count.</em></h1><p>One simple place to track opportunities, interviews, and the next step in your career.</p><div class="hero-points"><span>✓ Track every application</span><span>✓ See your progress</span><span>✓ Stay interview-ready</span></div></div>
+        <div class="auth-card"><div class="tabs"><button class="tab active" data-tab="login">Log in</button><button class="tab" data-tab="register">Create account</button></div>
+          <form id="auth-form"><h2 id="auth-title">Welcome back</h2><p id="auth-subtitle" class="muted">Log in to continue to your dashboard.</p>
+            <label id="name-wrap" class="hidden">Full name<input id="name" autocomplete="name" placeholder="Your name"></label>
+            <label>Email address<input id="email" type="email" required autocomplete="email" placeholder="you@example.com"></label>
+            <label>Password<input id="password" type="password" required minlength="6" autocomplete="current-password" placeholder="At least 6 characters"></label>
+            <button class="primary full" type="submit" id="auth-submit">Log in</button><p id="auth-error" class="error"></p>
+          </form>
+        </div>
+      </section>
+      <section id="dashboard-view" class="hidden">
+        <div class="welcome-row"><div><span class="eyebrow">OVERVIEW</span><h1>Your job search, at a glance.</h1><p class="muted">Keep track of every opportunity and move forward with clarity.</p></div><button class="primary" id="add-open">＋ Add application</button></div>
+        <div class="stats">
+          <article class="stat"><span>Total applications</span><strong id="total-count">0</strong><small>All opportunities</small></article>
+          <article class="stat"><span>In progress</span><strong id="progress-count">0</strong><small>Applied, OA or interview</small></article>
+          <article class="stat"><span>Interviews</span><strong id="interview-count">0</strong><small>Interview stage</small></article>
+          <article class="stat"><span>Offers</span><strong id="offer-count">0</strong><small>Great news</small></article>
+        </div>
+        <section class="panel"><div class="panel-head"><div><h2>Applications</h2><p class="muted">Your latest job opportunities</p></div><div class="filters"><input id="search" placeholder="Search company or role"><select id="status-filter"><option value="">All statuses</option><option>Applied</option><option>Online Assessment</option><option>Interview</option><option>Offer</option><option>Rejected</option></select></div></div>
+          <div class="table-wrap"><table><thead><tr><th>Company / Role</th><th>Applied date</th><th>Status</th><th>Location</th><th>Actions</th></tr></thead><tbody id="applications-body"></tbody></table></div>
+          <div id="empty-state" class="empty hidden"><div class="empty-icon">✦</div><h3>No applications yet</h3><p>Add your first opportunity to start tracking your job search.</p><button class="primary" id="empty-add">Add your first application</button></div>
+        </section>
+      </section>
+    </main>
+    <footer>HireTrack · Built to help you move your career forward.</footer>
+  </div>
+  <div id="modal" class="modal hidden"><div class="modal-card"><div class="modal-head"><div><span class="eyebrow">OPPORTUNITY DETAILS</span><h2 id="modal-title">Add application</h2></div><button class="icon-btn" id="modal-close" aria-label="Close">×</button></div>
+    <form id="application-form"><input type="hidden" id="app-id">
+      <div class="form-grid"><label>Company name *<input id="company" required placeholder="e.g. Amazon"></label><label>Job role *<input id="role" required placeholder="e.g. Software Engineer"></label>
+      <label>Location<input id="location" placeholder="e.g. Hyderabad / Remote"></label><label>Application date<input id="appliedDate" type="date"></label>
+      <label>Status<select id="status"><option>Applied</option><option>Online Assessment</option><option>Interview</option><option>Offer</option><option>Rejected</option></select></label><label>Job URL<input id="jobUrl" type="url" placeholder="https://..."></label>
+      <label class="wide">Notes<textarea id="notes" rows="3" placeholder="Recruiter details, next steps, interview notes..."></textarea></label></div>
+      <p id="app-error" class="error"></p><div class="modal-actions"><button type="button" class="secondary" id="cancel-btn">Cancel</button><button class="primary" type="submit">Save application</button></div>
+    </form>
+  </div></div>
+  <script src="/app.js"></script>
+</body></html>
